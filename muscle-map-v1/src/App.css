@@ -1,0 +1,92 @@
+.App {
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.content {
+  display: flex;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-color: rgb(0, 0, 0, 0.3) rgb(0, 0, 0, 0.1);
+  scrollbar-width: thin;
+  max-height: 39rem;
+  width: 24.65rem;
+}
+
+.addWorkout {
+  display: flex;
+}
+
+.addWorkout > button{
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 1rem;
+  background-color:lightgrey;
+  border-radius: 8px;
+  width: 12rem;
+  height: 3rem;
+  border-style:none;
+  cursor: pointer;
+  transition: background-color 0.2 ease;
+}
+
+.addWorkout > button:hover{
+  background-color: gainsboro;
+}
+
+.addWorkout_text,
+.addWorkout_icon, 
+.removeWorkout_text,
+.removeWorkout_icon {
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+}
+
+.addWorkout_icon {
+  padding-left: 2.5rem;
+  font-size: 2em;
+  padding-bottom: 0.5rem;
+}
+
+.removeWorkout_icon {
+  padding-left: 1.3rem;
+  font-size: 2.5em;
+  padding-bottom: 0.5rem;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background-color:whitesmoke;
+  width: 24rem;
+  height: 3rem;
+  padding-left: 1rem;
+}
+
+.searchBox.found {
+  background-color:lightslategrey;
+}
+
+.exerciseInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.searchButton {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+

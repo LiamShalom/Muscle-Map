@@ -1,0 +1,13 @@
+.muscle-diagram {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 800px;
+  background: red;
+}
+
+.muscle-diagram svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
