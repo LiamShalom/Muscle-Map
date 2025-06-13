@@ -7,26 +7,20 @@ function MuscleDiagram({ totals }) {
   useEffect(() => {
     const newColors = {};
     for (const [key, num] of Object.entries(totals)) {
-      let red = 0;
-      let green = 0;
-      let blue = 0;
-      if (num < 50) { // blue-green
-        if (num < 25) { // blue-cyan
-          blue = 255;
-          green = num * 10
-        } else { // cyan-green
-          green = 255;
-          red = 255 - ((num - 25) * 10)
-        }
-      } else { // green-red
-        if (num < 75) { // green-yellow
-          green = 255;
-          red = (num - 50) * 10
-        } else if(num < 100){ // yellow-red
+      let red = 255;
+      let green = 255;
+      let blue = 255;
+      if(num > 0){
+        blue = 0;
+        if(num <= 50){ // white-yellow
           red = 255;
-          green = 255 - (num - 75 * 10)
-        }else {
-          red = 255
+          green = (num * (255/50))
+        }else if(num <= 100){ //yellow-green
+          green = 255;
+          red = 255 - (num * (255/50))
+        }else{
+          green = 255;
+          red = 0;
         }
       }
       newColors[key] = `rgb(${red}, ${green}, ${blue})`
