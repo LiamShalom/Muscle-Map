@@ -7,9 +7,11 @@ function App() {
   const [data, setData] = useState({});
   const [exercises, setExercises] = useState([{}]);
   const [queries, setQueries] = useState([]);
-  const [totals, setTotals] = useState({ "traps":0, "front_delts":0, "rear_delts":0, "triceps":0, "biceps":0, "forearms":0,
-      "pecs":0, "upper_back":0, "lats":0, "abdominals":0, "obliques":0, "lower_back":0,
-      "glutes":0, "quads":0, "hamstrings":0, "calves":0, "hip_flexors":0});
+  const [totals, setTotals] = useState({
+    "traps": 0, "front_delts": 0, "rear_delts": 0, "triceps": 0, "biceps": 0, "forearms": 0,
+    "pecs": 0, "upper_back": 0, "lats": 0, "abdominals": 0, "obliques": 0, "lower_back": 0,
+    "glutes": 0, "quads": 0, "hamstrings": 0, "calves": 0, "hip_flexors": 0
+  });
 
   const addWorkout = () => {
     setExercises([...exercises, {}])
@@ -67,9 +69,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Muscle Map</h1>
       <div className="content">
-        <div className="left-column">
+        <div className="left-column" style={{ position: 'relative' }}>
+          <h1>Muscle Map</h1>
           <div className="addWorkout">
             <button
               onClick={addWorkout}
@@ -116,10 +118,30 @@ function App() {
             src="images/muscle-diagram-bw.png"
             alt="Muscle Diagram"
           />
-          <div>
-            <MuscleDiagram totals={totals}/>
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+            <MuscleDiagram totals={totals} />
+          </div>
+
+        </div>
+        <div className='legend'>
+          <div id="color_range">
+          </div>
+          <div className="gradient-labels" >
+            <div>
+              Heavy Activation
+            </div>
+            <div style={{ marginTop: '17rem' }}>
+              Moderate Activation
+            </div>
+            <div style={{ marginTop: '17rem' }}>
+              Light Activation
+            </div>
           </div>
         </div>
+
+
+
+
 
       </div>
 

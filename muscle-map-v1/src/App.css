@@ -11,8 +11,6 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  scrollbar-color: rgb(0, 0, 0, 0.3) rgb(0, 0, 0, 0.1);
-  scrollbar-width: thin;
   max-height: 39rem;
   width: 24.65rem;
 }
@@ -88,5 +86,26 @@
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
+}
+
+.legend {
+  display: flex;
+  padding-top: 50px;
+}
+
+#color_range {
+  height: 684px;
+  width: 20px;
+  background: linear-gradient(rgb(125, 0, 0),rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(255, 255, 255));
+}
+
+.gradient-labels {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  width: 80px;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
 }
 
