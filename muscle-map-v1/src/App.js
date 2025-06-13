@@ -113,7 +113,7 @@ function App() {
 
         <div style={{ position: 'relative' }}>
           <img
-            src="images/muscle-diagram-bw.png"
+            src="images/muscle-diagram-blue.png"
             alt="Muscle Diagram"
             style={{ width: '100%', display: 'block' }}
           />
