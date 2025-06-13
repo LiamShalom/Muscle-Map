@@ -5,6 +5,7 @@ function MuscleDiagram({ totals }) {
 
 
   useEffect(() => {
+    console.log(totals);
     const newColors = {};
     for (const [key, num] of Object.entries(totals)) {
       let red = 255;
@@ -13,25 +14,29 @@ function MuscleDiagram({ totals }) {
       if(num > 0){
         blue = 0;
         if(num <= 50){ // white-yellow
-          red = 255;
-          green = (num * (255/50))
+          green = 255
+          red = (num * (255/50))
         }else if(num <= 100){ //yellow-green
-          green = 255;
-          red = 255 - (num * (255/50))
+          red = 255;
+          green = 255 - ((num - 50) * (255/50))
+        }else if(num <= 150){
+          red = 255 - ((num - 100) * (255/100));
+          green = 0;
         }else{
-          green = 255;
-          red = 0;
+          red = 125;
+          green = 0;
         }
       }
       newColors[key] = `rgb(${red}, ${green}, ${blue})`
     }
     setColors(newColors);
+    console.log(colors)
   }, [totals])
 
 
   return (
     <div className="muscle-diagram">
-      <svg viewBox="0 0 800 800" width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 684 684" width="684" height="684" xmlns="http://www.w3.org/2000/svg">
         <g xmlns="http://www.w3.org/2000/svg" id="upper_back" style={{
           fill: colors["upper_back"], fillOpacity: 1, stroke: 'black',
           strokeWidth: 1
