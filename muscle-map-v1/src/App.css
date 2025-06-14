@@ -1,6 +1,8 @@
 .App {
   padding-left: 50px;
   padding-top: 50px;
+  background-color: #ABA8AC;
+  font-weight: bold;
 }
 
 .content {
@@ -22,10 +24,10 @@
 .addWorkout > button{
   display: flex;
   align-items: center;
-  font-weight: bold;
   text-align: left;
   padding-left: 1rem;
-  background-color:lightgrey;
+  background-color:#3E3E3E;
+  color: #DCDCDC;
   border-radius: 8px;
   width: 12rem;
   height: 3rem;
@@ -35,7 +37,7 @@
 }
 
 .addWorkout > button:hover{
-  background-color: gainsboro;
+  background-color: rgb(80, 80, 80);
 }
 
 .addWorkout_text,
@@ -50,7 +52,7 @@
 .addWorkout_icon {
   padding-left: 2.5rem;
   font-size: 2em;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
 }
 
 .removeWorkout_icon {
@@ -63,14 +65,14 @@
   display: flex;
   align-items: center;
   border-radius: 8px;
-  background-color:whitesmoke;
+  background-color: #DCDCDC;
   width: 24rem;
   height: 3rem;
   padding-left: 1rem;
 }
 
 .searchBox.found {
-  background-color:lightslategrey;
+  background-color: #A0CB36;
 }
 
 .exerciseInput {
@@ -97,6 +99,7 @@
   height: 684px;
   width: 20px;
   background: linear-gradient(rgb(125, 0, 0),rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(255, 255, 255));
+  border: 2px solid black;
 }
 
 .gradient-labels {

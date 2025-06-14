@@ -113,10 +113,11 @@ function App() {
           </div>
         </div>
 
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: '800px'}}>
           <img
-            src="images/muscle-diagram-bw.png"
+            src="images/muscle-diagram-white.png"
             alt="Muscle Diagram"
+            style={{width: '100%', height: '100%' }}
           />
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
             <MuscleDiagram totals={totals} />

@@ -36,7 +36,7 @@ function MuscleDiagram({ totals }) {
 
   return (
     <div className="muscle-diagram">
-      <svg viewBox="0 0 800 800" width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
         <g xmlns="http://www.w3.org/2000/svg" id="upper_back" style={{
           fill: colors["upper_back"], fillOpacity: 1, stroke: 'black',
           strokeWidth: 1
