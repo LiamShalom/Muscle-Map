@@ -5,7 +5,6 @@ function MuscleDiagram({ totals }) {
 
 
   useEffect(() => {
-    console.log(totals);
     const newColors = {};
     for (const [key, num] of Object.entries(totals)) {
       let red = 255;
@@ -30,7 +29,6 @@ function MuscleDiagram({ totals }) {
       newColors[key] = `rgb(${red}, ${green}, ${blue})`
     }
     setColors(newColors);
-    console.log(colors)
   }, [totals])
 
 

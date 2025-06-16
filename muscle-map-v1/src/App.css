@@ -13,7 +13,6 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  max-height: 39rem;
   width: 24.65rem;
 }
 
@@ -21,27 +20,27 @@
   display: flex;
 }
 
-.addWorkout > button{
+.addWorkout>button {
   display: flex;
   align-items: center;
   text-align: left;
   padding-left: 1rem;
-  background-color:#3E3E3E;
+  background-color: #3E3E3E;
   color: #DCDCDC;
   border-radius: 8px;
   width: 12rem;
   height: 3rem;
-  border-style:none;
+  border-style: none;
   cursor: pointer;
   transition: background-color 0.2 ease;
 }
 
-.addWorkout > button:hover{
+.addWorkout>button:hover {
   background-color: rgb(80, 80, 80);
 }
 
 .addWorkout_text,
-.addWorkout_icon, 
+.addWorkout_icon,
 .removeWorkout_text,
 .removeWorkout_icon {
   display: inline-flex;
@@ -61,9 +60,14 @@
   padding-bottom: 0.5rem;
 }
 
+.workouts {
+  display: flex;
+  flex-direction: column;
+  max-height: 24rem;
+}
+
 .searchBox {
   display: flex;
-  align-items: center;
   border-radius: 8px;
   background-color: #DCDCDC;
   width: 24rem;
@@ -73,6 +77,13 @@
 
 .searchBox.found {
   background-color: #A0CB36;
+}
+
+.searchBar {
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 150%;
 }
 
 .exerciseInput {
@@ -90,6 +101,30 @@
   cursor: pointer;
 }
 
+.searchBar-suggestions {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 100%;
+  width: 100%;
+  background-color: #DCDCDC;
+  list-style: none;
+  z-index: 999;
+  border-radius: 4px;
+  padding: 4px;
+  overflow-y: scroll;
+  max-height: 12rem;
+}
+
+.searchBar-suggestion {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.searchBar-suggestion:hover {
+  background-color: #f0f0f0;
+}
+
 .legend {
   display: flex;
   padding-top: 50px;
@@ -98,7 +133,7 @@
 #color_range {
   height: 684px;
   width: 20px;
-  background: linear-gradient(rgb(125, 0, 0),rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(255, 255, 255));
+  background: linear-gradient(rgb(125, 0, 0), rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(255, 255, 255));
   border: 2px solid black;
 }
 
@@ -111,4 +146,3 @@
   text-align: center;
   align-items: center;
 }
-

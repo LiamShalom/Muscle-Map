@@ -7,15 +7,50 @@ function App() {
   const [data, setData] = useState({});
   const [exercises, setExercises] = useState([{}]);
   const [queries, setQueries] = useState([]);
+  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+  const [focusedIndex, setFocusedIndex] = useState(null);
   const [totals, setTotals] = useState({
     "traps": 0, "front_delts": 0, "rear_delts": 0, "triceps": 0, "biceps": 0, "forearms": 0,
     "pecs": 0, "upper_back": 0, "lats": 0, "abdominals": 0, "obliques": 0, "lower_back": 0,
     "glutes": 0, "quads": 0, "hamstrings": 0, "calves": 0, "hip_flexors": 0
   });
 
+
+  const handleChange = (e, index) => {
+    const newQueries = [...queries];
+    newQueries[index] = e.target.value;
+    setQueries(newQueries);
+
+    const newExercises = [...exercises];
+    newExercises[index] = {};
+    setExercises(newExercises);
+
+    filterSuggestions(e.target.value);
+  }
+
+  const handleSelect = (val) => {
+    const newQueries = [...queries];
+    newQueries[focusedIndex] = val;
+    setQueries(newQueries);
+    findWorkout(val)
+  }
+
+  const filterSuggestions = (query) => {
+    const suggestions = data.map(exercise => exercise.name)
+    suggestions.sort();
+    if (query != null) {
+      setFilteredSuggestions(suggestions.filter(suggestion =>
+        suggestion.toLowerCase().includes(query.toLowerCase())));
+    }else{
+      setFilteredSuggestions(suggestions)
+    }
+
+  }
+
   const addWorkout = () => {
     setExercises([...exercises, {}])
     setQueries([...queries, ""]);
+    filterSuggestions(null);
   }
 
   const removeWorkout = () => {
@@ -32,17 +67,18 @@ function App() {
     }
   }
 
-  const findWorkout = async (name, index) => {
+  const findWorkout = async (name) => {
     try {
       const { data } = await getExercise(name);
       setData(data);
       const updated = [...exercises];
       if (data.length > 0) {
-        updated[index] = data[0];
+        updated[focusedIndex] = data[0];
       } else {
-        updated[index] = {};
+        updated[focusedIndex] = {};
       }
       setExercises(updated);
+      getExercises();
     } catch (error) {
       console.log(error)
     }
@@ -94,30 +130,50 @@ function App() {
           <div className="workouts">
             {exercises.map((_, index) => (
               <div className={`searchBox ${exercises[index].name === undefined ? "" : "found"}`} key={index}>
-                <input
-                  className={"exerciseInput"}
-                  type="text"
-                  value={queries[index] || ""}
-                  onChange={(e) => {
-                    const newQueries = [...queries];
-                    newQueries[index] = e.target.value;
-                    setQueries(newQueries);
+                {data && Array.isArray(data) && (
+                  <div>
+                    <div className='searchBar'>
+                      <input
+                        className={"exerciseInput"}
+                        type="text"
+                        value={queries[index] || ""}
+                        onChange={(e) => handleChange(e, index)}
+                        placeholder="Exercise"
+                        onFocus={() => {
+                          setTimeout(() => setFocusedIndex(index), 200);
+                          filterSuggestions(queries[index] || null);
+                        }}
+                        onBlur={() => setTimeout(() => setFocusedIndex(null), 200)}
+                      />
+                      <button className="searchButton" onClick={() => findWorkout(queries[index], index)}>🔍</button>
+                    </div>
+                    <div>
+                      {focusedIndex === index && (
+                        <ul className="searchBar-suggestions">
+                          {filteredSuggestions.map((suggestion, idx) => (
+                            <li
+                              key={idx}
+                              className="searchBar-suggestion"
+                              onClick={() => handleSelect(suggestion)}>
+                              {suggestion}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                )}
 
-                  }}
-                  placeholder="Exercise"
-                >
-                </input>
-                <button className="searchButton" onClick={() => findWorkout(queries[index], index)}>🔍</button>
               </div>
             ))}
           </div>
         </div>
 
-        <div style={{ position: 'relative', width: '100%', maxWidth: '800px'}}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: '800px' }}>
           <img
             src="images/muscle-diagram-white.png"
             alt="Muscle Diagram"
-            style={{width: '100%', height: '100%' }}
+            style={{ width: '100%', height: '100%' }}
           />
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
             <MuscleDiagram totals={totals} />
