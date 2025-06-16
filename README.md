@@ -28,8 +28,9 @@ Enabling smarter training, better balance, and more effective progress tracking.
 - **PostgreSQL** (Database)
 
 ## 📦 Folder Structure
-
-muscle-map//
+```
+muscle-map/
 ├── frontend/ # React app and muscle diagram
 ├── backend/ # API for saving workouts
 └── README.md
+```
