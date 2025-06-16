@@ -30,7 +30,7 @@ Enabling smarter training, better balance, and more effective progress tracking.
 ## 📦 Folder Structure
 ```
 muscle-map/
-├── frontend/ # React app and muscle diagram
-├── backend/ # API for saving workouts
+├── muscle-map-v1/ # React app and muscle diagram
+├── muscle-map-api/ # API for saving workouts
 └── README.md
 ```
