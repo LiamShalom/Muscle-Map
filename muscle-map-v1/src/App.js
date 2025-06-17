@@ -134,9 +134,9 @@ function App() {
                   <div>
                     <div className='searchBar'>
                       <input
-                        className={"exerciseInput"}
+                        className="exerciseInput"
                         type="text"
-                        value={queries[index] || ""}
+                        value={queries[index]}
                         onChange={(e) => handleChange(e, index)}
                         placeholder="Exercise"
                         onFocus={() => {
