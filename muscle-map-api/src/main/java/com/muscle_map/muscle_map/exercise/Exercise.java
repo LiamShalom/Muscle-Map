@@ -6,10 +6,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="workouts")
+@Table(name="exercises")
 public class Exercise {
     @Id
-    @Column(name = "exercise", unique = true, nullable = false)
+    @Column(name = "name", unique = true, nullable = false)
     private String name;
     private int traps;
     private int front_delts;

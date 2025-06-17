@@ -88,6 +88,7 @@ function App() {
 
   useEffect(() => {
     getExercises();
+    console.log(data)
   }, [])
 
   useEffect(() => {
@@ -130,7 +131,6 @@ function App() {
           </div>
 
           <div className="workouts">
-            <h1>Hi</h1>
             {exercises.map((_, index) => (
               <div className={`searchBox ${exercises[index].name === undefined ? "" : "found"}`} key={index}>
                 {data && Array.isArray(data) && (
