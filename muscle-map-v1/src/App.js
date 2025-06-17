@@ -1,3 +1,5 @@
+'use client'
+
 import './App.css';
 import { useState, useEffect } from 'react';
 import { getAllExercises, getExercise } from './api/ExerciseService';
@@ -128,6 +130,7 @@ function App() {
           </div>
 
           <div className="workouts">
+            <h1>Hi</h1>
             {exercises.map((_, index) => (
               <div className={`searchBox ${exercises[index].name === undefined ? "" : "found"}`} key={index}>
                 {data && Array.isArray(data) && (
