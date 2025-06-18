@@ -88,7 +88,6 @@ function App() {
 
   useEffect(() => {
     getExercises();
-    console.log(data)
   }, [])
 
   useEffect(() => {
