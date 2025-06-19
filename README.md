@@ -4,6 +4,8 @@
 By logging exercises, users receive a heatmap-style diagram showing which muscles are being worked the most
 Enabling smarter training, better balance, and more effective progress tracking.
 
+**Website** https://muscle-map-yran.onrender.com
+
 ## 🚀 Features
 
 - 🔍 Search and add exercises to your workout
@@ -26,6 +28,7 @@ Enabling smarter training, better balance, and more effective progress tracking.
 - **RESTful API** (Backend)
 - **Java**
 - **PostgreSQL** (Database)
+- **Render & Neon** (Deployment)
 
 ## 📦 Folder Structure
 ```
